@@ -13,7 +13,8 @@ public class cPersonaje : MonoBehaviour
     
 
     int velocidad = 5;
-    float rot=0.0f;
+
+    float rot=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,19 +34,33 @@ public class cPersonaje : MonoBehaviour
         direccion = new Vector3(mov.Horizontal, mov.Vertical);
         direccion *= velocidad * Time.deltaTime;
         this.transform.position += direccion;
-        
     }
 
     private void rotacionJugador()
     {
         float z = dir.Horizontal * 300;   
         rot -= Mathf.Round(z) * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0, 0, rot);
+        this.transform.RotateAround(transform.position,Vector3.back,rot*Time.deltaTime);
+
+        
+        /*float z = dir.Horizontal;
+        float x = dir.Vertical;
+        float rotacion = 0.0f;
+        //Debug.Log(x + "    " + z);
+
+        rotZ =  (int)Mathf.Round(z);
+        rotX = (int)Mathf.Round(x);
+        
+        Debug.Log(rotX + "    " + rotZ);
+        if(rotZ == 1 && rotacion!=-90.0f)
+        {
+            rotacion = -90.0f;
+            this.transform.Rotation = new Vector3(0,0,rotacion);
+        }*/
     }
 
     public void disparando()
     {
-
         cantBalas -= 1;
     }
 }
