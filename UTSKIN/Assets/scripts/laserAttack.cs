@@ -5,33 +5,45 @@ using UnityEngine;
 public class laserAttack : MonoBehaviour
 {
 
-    LineRenderer line;
-    Transform laserH;
-    bool activado = false;
+    //LineRenderer line;
+    GameObject finLinea;
+    
     // Start is called before the first frame update
     void Start()
     {
-        line = GetComponent<LineRenderer>();
-        line.enabled = false;
+        /*line = GetComponent<LineRenderer>();
+        line.enabled = true;
         line.useWorldSpace = true;
+        */
+        finLinea = GameObject.Find("FinDisparo");
+
+        Debug.Log(transform.position + "     " + finLinea.transform.position);
+
+    }
+
+
+    void FixedUpdate()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, finLinea.transform.position);
+        if (hit.collider != null)
+        {
+            //code when the ai can walk
+            Debug.Log("no pego");
+        }
+        else
+        {
+            Debug.Log("si pego");
+            //code when the ai cannot walk
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up);
-        laserH.position = hit.point;
-        line.SetPosition(0, transform.position);
-        line.SetPosition(1, laserH.position);
-        if(activado == true)
-        {
-            line.enabled = true;
-        }
-        else
-        {
-            line.enabled = false;
-        }
+         
     }
+
+
     public void ataque()
     {
 
