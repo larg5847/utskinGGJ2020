@@ -45,12 +45,15 @@ public class Rust_Behaviour : MonoBehaviour
         if (!isHited)
         {
             var rad2 = rustParticle.shape;
-            rad2.enabled = true;
-            rad2.radius += 0.001f;
-            collider.radius += 0.001f;
+            if (rad2.radius <= 5.0f) 
+            {
+                rad2.enabled = true;
+                rad2.radius += 0.001f;
+                collider.radius += 0.001f;
 
-            rustParticle.GetParticles(m_Particles, 50);
-            //rustParticle.Play();
+                rustParticle.GetParticles(m_Particles, 50);
+                //rustParticle.Play();
+            }
         }
         else if (isHited)
         {

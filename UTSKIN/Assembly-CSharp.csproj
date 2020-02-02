@@ -70,6 +70,7 @@
     <Compile Include="Assets\Particles\Rust_Behaviour.cs" />
     <Compile Include="Assets\scripts\cambioEscenas.cs" />
     <Compile Include="Assets\scripts\cPersonaje.cs" />
+    <Compile Include="Assets\scripts\debugCode\RaycastExample.cs" />
     <Compile Include="Assets\scripts\followCam.cs" />
     <Compile Include="Assets\scripts\laserAttack.cs" />
     <Compile Include="Assets\scripts\rotMira.cs" />

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 484854768771380082}
   - component: {fileID: 287053423038104126}
   - component: {fileID: 7868330791391337949}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Componente_2
-  m_TagString: Untagged
+  m_TagString: Utileria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

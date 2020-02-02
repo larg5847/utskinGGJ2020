@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5686653356832290243}
   - component: {fileID: 2738067650839532036}
   - component: {fileID: 1536295578732593332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chip_5
-  m_TagString: Untagged
+  m_TagString: Utileria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

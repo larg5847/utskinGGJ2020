@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2257489297888763815}
   - component: {fileID: 651899405615997267}
   - component: {fileID: 853714959186132224}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Entrada_1
-  m_TagString: Untagged
+  m_TagString: Utileria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

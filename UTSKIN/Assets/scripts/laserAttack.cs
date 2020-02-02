@@ -5,47 +5,61 @@ using UnityEngine;
 public class laserAttack : MonoBehaviour
 {
 
-    //LineRenderer line;
+    LineRenderer line;
     GameObject finLinea;
-    
+
+    Vector2 thisPos;
+    Vector2 finalPos;
+
+    CircleCollider2D circuloAtacante;
+
+    bool estaAtacando = false;
     // Start is called before the first frame update
     void Start()
     {
-        /*line = GetComponent<LineRenderer>();
-        line.enabled = true;
-        line.useWorldSpace = true;
-        */
         finLinea = GameObject.Find("FinDisparo");
-
-        Debug.Log(transform.position + "     " + finLinea.transform.position);
-
+        line = GetComponent<LineRenderer>();
+        circuloAtacante = finLinea.GetComponent<CircleCollider2D>();
     }
 
 
     void FixedUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, finLinea.transform.position);
-        if (hit.collider != null)
-        {
-            //code when the ai can walk
-            Debug.Log("no pego");
-        }
-        else
-        {
-            Debug.Log("si pego");
-            //code when the ai cannot walk
-        }
+        //var hit : RaycastHit;
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-         
+        if(estaAtacando)
+        {
+            finalPos = finLinea.transform.position;
+            thisPos = this.transform.position;
+            var hit = Physics2D.Linecast(thisPos, finalPos, 1 << LayerMask.NameToLayer("Oxido"));
+            Debug.DrawLine(thisPos, finalPos);
+
+            line.SetWidth(.2f,.01f);
+            line.SetPosition(0, thisPos);
+            line.SetPosition(1, finalPos);
+            //SetColor(Color.blue, Color.red);
+
+
+        }
+        
     }
 
-
-    public void ataque()
+    public void activarAtaque()
     {
-
+        estaAtacando = true;
+        line.enabled = true;
+        circuloAtacante.enabled = true;
+    }
+    public void desactivarAtaque()
+    {
+        estaAtacando = false;
+        line.enabled = false;
+        circuloAtacante.enabled = false;
     }
 }
